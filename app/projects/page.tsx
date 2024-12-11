@@ -1,6 +1,6 @@
 import AppLayoutWrapper from "@/components/app-layout-wrapper";
 
-export default function Home() {
+export default function Projects() {
   return (
     <AppLayoutWrapper>
       <div />
