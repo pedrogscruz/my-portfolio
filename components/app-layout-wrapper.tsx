@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo } from "react";
-import {useMediaQuery} from "usehooks-ts";
+import { useMediaQuery } from "usehooks-ts";
 import { Button, Spacer, useDisclosure } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import Sidebar, { SidebarItem } from "@/components/next-ui/sidebar";
@@ -66,7 +66,7 @@ export default function AppLayoutWrapper({
   return (
     <div className="flex h-dvh w-full">
       <SidebarDrawer
-        className="!border-r-small border-divider"
+        className="!border-r-small border-divider bg-gradient-to-b from-default-100 via-danger-100 to-secondary-100"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
       >

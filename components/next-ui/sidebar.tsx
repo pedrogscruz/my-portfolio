@@ -8,8 +8,9 @@ import {
   type Selection,
 } from "@nextui-org/react";
 import React from "react";
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 import { Listbox, Tooltip, ListboxItem, ListboxSection } from "@nextui-org/react";
+import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { cn } from "@nextui-org/react";
 
@@ -204,10 +205,18 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
         if (isNestType) {
           return renderNestItem(item);
         }
+        const index = items.findIndex(({ key }) => item.key === key)
 
         return (
           <ListboxItem
             {...item}
+            as={motion.a}
+            {...{
+              initial: { y: -20, opacity: 0 },
+              animate: { y: 0, opacity: 1 },
+              exit: { opacity: 0 },
+              transition: { duration: 0.8, delay: index * 0.4 }
+            }}
             key={item.key}
             endContent={isCompact || hideEndContent ? null : item.endContent ?? null}
             startContent={
